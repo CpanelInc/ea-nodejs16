@@ -11,8 +11,8 @@ License: MIT
 Group:   Development/Languages
 URL:  https://nodejs.org
 Source0: https://nodejs.org/dist/v%{version}/node-v%{version}-linux-x64.tar.gz
-Provides: ea4-passenger-nodejs
-Conflicts: ea4-passenger-nodejs
+Provides: ea4-nodejs
+Conflicts: ea4-nodejs
 
 %description
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
