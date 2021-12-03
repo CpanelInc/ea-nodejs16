@@ -21,7 +21,12 @@ Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 %setup -qn node-v%{version}-linux-x64
 
 %build
-# empty build section since we're just putting the tarball's contents in place
+
+# nodejs now has support for Microsoft Powershell, since that is not relevant
+# to any of our deployed systems, I am removing them so they do not
+# automatically require powershell, causing a dependency issue
+
+rm -f `find . -type f -print | xargs grep -l "env pwsh"`
 
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf %{buildroot}
