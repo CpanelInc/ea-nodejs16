@@ -34,7 +34,7 @@ my @files = split (/\n/, \`find . -type f -print\`);
 
 foreach my \$file (@files) {
     my \$first_line = \`head -n 1 \$file\`;
-    if (\$first_line =~ m/env pwsh/) {
+    if (\$first_line =~ m/env\s+pwsh/) {
         print "Removing file \$file\n";
         unlink \$file;
     }
