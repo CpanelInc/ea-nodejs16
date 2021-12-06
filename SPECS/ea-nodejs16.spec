@@ -26,7 +26,22 @@ Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 # to any of our deployed systems, I am removing them so they do not
 # automatically require powershell, causing a dependency issue
 
-rm -f `find . -type f -print | xargs grep -l "env pwsh"`
+cat > remove_pwsh.pl <<EOF
+use strict;
+use warnings;
+
+my @files = split (/\n/, \`find . -type f -print\`);
+
+foreach my \$file (@files) {
+    my \$first_line = \`head -n 1 \$file\`;
+    if (\$first_line =~ m/env\s+pwsh/) {
+        print "Removing file \$file\n";
+        unlink \$file;
+    }
+}
+EOF
+
+/usr/bin/perl remove_pwsh.pl
 
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf %{buildroot}
