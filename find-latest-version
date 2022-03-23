@@ -47,9 +47,7 @@ sub _add_sum {
 
     my $checksum_url = "https://nodejs.org/dist/v$hr->{version}/SHASUMS256.txt";
 
-print "URL :$checksum_url:$hr->{version}:\n";
-
-    my $res          = $http->get($checksum_url);
+    my $res = $http->get($checksum_url);
     if ( !$res->{success} ) {
         die "Could not GET nodejs SHASUMS page ($res->{status} $res->{reason})\n";
     }
