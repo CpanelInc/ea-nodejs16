@@ -3,7 +3,7 @@
 Name:    ea-nodejs16
 Vendor:  cPanel, Inc.
 Summary: Node.js 16
-Version: 16.17.0
+Version: 16.17.1
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4572 for more details
 %define release_prefix 1
 Release: %{release_prefix}%{?dist}.cpanel
@@ -71,6 +71,9 @@ echo -n /opt/cpanel/ea-nodejs16/bin/node > %{buildroot}/etc/cpanel/ea4/passenger
 
 
 %changelog
+* Sun Sep 25 2022 Cory McIntire <cory@cpanel.net> - 16.17.1-1
+- EA-10948: Update ea-nodejs16 from v16.17.0 to v16.17.1
+
 * Tue Aug 16 2022 Cory McIntire <cory@cpanel.net> - 16.17.0-1
 - EA-10881: Update ea-nodejs16 from v16.16.0 to v16.17.0
 
