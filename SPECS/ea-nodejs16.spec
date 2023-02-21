@@ -3,7 +3,7 @@
 Name:    ea-nodejs16
 Vendor:  cPanel, Inc.
 Summary: Node.js 16
-Version: 16.19.0
+Version: 16.19.1
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4572 for more details
 %define release_prefix 1
 Release: %{release_prefix}%{?dist}.cpanel
@@ -71,6 +71,15 @@ echo -n /opt/cpanel/ea-nodejs16/bin/node > %{buildroot}/etc/cpanel/ea4/passenger
 
 
 %changelog
+* Fri Feb 17 2023 Cory McIntire <cory@cpanel.net> - 16.19.1-1
+- EA-11255: Update ea-nodejs16 from v16.19.0 to v16.19.1
+- [CVE-2023-23918) Node.js Permissions policies can be bypassed via process.mainModule (High)
+- [CVE-2023-23919) Node.js OpenSSL error handling issues in nodejs crypto library (Medium)
+- [CVE-2023-23920] Node.js insecure loading of ICU data through ICU_DATA environment variable (Low)
+- [CVE-2023-23936] Fetch API in Node.js did not protect against CRLF injection in host headers (Medium)
+- [CVE-2023-24807] Regular Expression Denial of Service in Headers in Node.js fetch API (Low)
+
+
 * Thu Dec 15 2022 Cory McIntire <cory@cpanel.net> - 16.19.0-1
 - EA-11105: Update ea-nodejs16 from v16.18.1 to v16.19.0
 
