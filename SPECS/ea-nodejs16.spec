@@ -1,11 +1,9 @@
-%global debug_package %{nil}
-
 Name:    ea-nodejs16
 Vendor:  cPanel, Inc.
 Summary: Node.js 16
 Version: 16.20.0
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4572 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release: %{release_prefix}%{?dist}.cpanel
 License: MIT
 Group:   Development/Languages
@@ -71,6 +69,9 @@ echo -n /opt/cpanel/ea-nodejs16/bin/node > %{buildroot}/etc/cpanel/ea4/passenger
 
 
 %changelog
+* Mon May 08 2023 Julian Brown <julian.brown@cpanel.net> - 16.20.0-2
+- ZC-10936: Clean up Makefile and remove debug-package-nil
+
 * Fri Mar 31 2023 Cory McIntire <cory@cpanel.net> - 16.20.0-1
 - EA-11328: Update ea-nodejs16 from v16.19.1 to v16.20.0
 
